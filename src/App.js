@@ -6,6 +6,17 @@ const url = 'https://course-api.com/react-tours-project';
 const App = () => {
   const [Loading, setLoading] = useState(true);
   const [Tours, setTours] = useState([]);
+
+  const fetchTours = async () => {
+    setLoading(true);
+    const response = await fetch(url);
+    const tours = await response.json();
+  };
+
+  useEffect(() => {
+    fetchTours();
+  },[]);
+
   if (Loading) {
     return (
       <main>
@@ -14,7 +25,9 @@ const App = () => {
     )
   }
   return (
-    <div>Tours Project</div>
+    <main>
+      <Tours />
+    </main>
   )
 }
 
