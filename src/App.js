@@ -7,27 +7,27 @@ const App = () => {
   const [Loading, setLoading] = useState(true);
   const [tours, setTours] = useState([]);
 
-  // const fetchTours = async () => {
-  //   setLoading(true);
-  //   const response = await fetch(url);
-  //   const tours = await response.json();
-  //   setTours(tours);
-  // };
+  const fetchTours = async () => {
+    setLoading(true);
+    const response = await fetch(url);
+    const tours = await response.json();
+    setTours(tours);
+  };
 
   useEffect(() => {
     fetchTours();
   },[]);
 
-  // if (Loading) {
-  //   return (
-  //     <main>
-  //       <Loading tours={tours}/>
-  //     </main>
-  //   )
+  if (Loading) {
+    return (
+      <main>
+        <Loading tours={tours}/>
+      </main>
+    )
   }
   return (
     <main>
-      <Tours />
+      <Tours tours={tours} />
     </main>
   )
 }

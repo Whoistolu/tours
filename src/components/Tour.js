@@ -1,6 +1,6 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 
-const Tour = () => {
+const Tour = ({id, image, info, proce, name}) => {
   return (
     <div> Single Tour Component</div>
   )
